@@ -43,3 +43,24 @@
 
 # Struct: Go không có OOP, chỉ có Struct, đây là 1 type
 
+# Array: Array của Go luôn phải khai báo số phần tử trong mảng - kích thước cố định không đổi được
+
+# Slice: Giống Array nhưng không cần khai báo số phần tử, chỉ là array con của array cho trước, có con trỏ tới array gốc -> đổi slice thì đổi luôn array gốc
+
+- Nên làm kiểu slice trỏ tới chính nó, thay vì trỏ tới array gốc (slice default)
+- Slice có thể khai báo capacity(sức chứa) > len
+- len() là số ptu hiện có trong slice, cap() là sức chứa tối đa của slice
+- Slice mặc định chưa khai báo gì thì là nil
+- Cap trong slice là cơ số 2, dù len lúc đó có thể là 5, cap tự tăng nên thường k cần quản lý
+- range là 1 for each loop của slice, hay đi với for
+- Khi khai báo biến trong Go LÀ PHẢI DÙNG, nếu k dùng thì dùng \_
+
+# Map: như mấy thằng kia, có 1 số API riêng
+
+# Có thể dùng func như 1 biến bình thường trong hàm
+
+# Go không có OOP, không có class nhưng vẫn khai báo được method
+
+- Là cách để giới hạn scope hoạt động của hàm
+
+# Interface: là 1 tập hợp các định nghĩa method
