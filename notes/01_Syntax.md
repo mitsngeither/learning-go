@@ -64,3 +64,25 @@
 - Là cách để giới hạn scope hoạt động của hàm
 
 # Interface: là 1 tập hợp các định nghĩa method
+
+## Concurrency
+
+# Goroutine: 1 lightweight thread được qly bởi Go runtime
+
+- dùng để thực thi đồng thời với các phần khác của chương trình
+
+# Channel: nơi các routines giao tiếp với nhau hiệu quả và an toàn
+
+- là thread-safe, blocking có điều kiện:
+
+* Loại này hoạt động theo nguyên tắc bắt tay trực tiếp (Rendezvous / Synchronous):Bên nhận (<-ch) gọi trước $\rightarrow$ Dừng lại đợi cho đến khi có bên gửi (ch <- data).Bên gửi (ch <- data) gọi trước $\rightarrow$ Cũng dừng lại đợi cho đến khi có bên nhận (<-ch).Cả hai bên phải "gặp nhau" cùng lúc thì dữ liệu mới được chuyển giao và cả hai mới chạy tiếp. Không quan tâm bên kia mất 1 mili-giây hay 10 phút để tới nơi, bên đến trước luôn phải chờ bên đến sau.
+
+- có buffer - bộ đệm:
+
+* chiều lấy ra `<-ch` thì phải có ít nhất 1 phần tử thì mới lấy ra được, lấy hết thì sẽ dừng lại đợi cho đến khi có gì đó đẩy vào
+
+* chiều đẩy vào `ch <- data` chỉ biọ chặn khi channel đã đầy value (đủ n phần tử mà chưa ai lấy, n có thể khai báo từ make())
+
+# Select: cho 1 goroutine đợi trên nhiều giao tiếp
+
+- block khi CHƯA có case nào sẵn sàng, và UNBLOCK khi một case bắt đầu chạy
