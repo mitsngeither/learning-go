@@ -1,3 +1,3 @@
 # learning-go
 
-# learning vid 3 01:00:40
+# learning vid 3 01:25:42
